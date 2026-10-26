@@ -1,0 +1,1256 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 37.4.1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel .marker.cddl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+    
+    
+    
+    
+<link rel="icon" type="image/x-icon" href="https://cta.tech/favicon.ico">
+    
+<style>
+
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 5px;
+      text-align: center;
+    }
+    th {
+      text-align: center;
+    }
+    
+</style>
+  
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+@media (prefers-color-scheme:dark){
+#references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+}
+body:has(input[name=color-scheme][value=dark]:checked) #references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+cite .bibref{font-style:italic}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(:where(#toc>h2,#abstract>h2,#sotd>h2,.head>h2)):has(+a.self-link){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(:where(#toch2))+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.8;text-decoration:none}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§"}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h2,h3)+a.self-link::before{color:var(--heading-text)}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
+body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
+</style>
+<meta name="color-scheme" content="light">
+<title>Design Requirements for a Label for IoT Device Cybersecurity (CTA-2120)</title>
+<meta name="description" content="This document defines a label structure that conveys information related to cybersecurity compliance with baseline security standards. The label is composed of a trademark and a mechanism (QR code) to link consumers to more detailed information. The detailed information is defined as JSON fields and in presentation form with an example in HTML. 
+        This standard was developed by the Consumer Technology Association’s R14 Cybersecurity and Privacy Management Committee. This is an approved and published CTA standard document. All CTA standards are available at CTA.tech/Standards.">
+<style>
+var:hover{text-decoration:underline;cursor:pointer}
+var.respec-hl{color:var(--color,#000);background-color:var(--bg-color);box-shadow:0 0 0 2px var(--bg-color)}
+@media (prefers-color-scheme:dark){
+var.respec-hl{filter:saturate(.9) brightness(.9)}
+}
+var.respec-hl-c1{--bg-color:#f4d200}
+var.respec-hl-c2{--bg-color:#ff87a2}
+var.respec-hl-c3{--bg-color:#96e885}
+var.respec-hl-c4{--bg-color:#3eeed2}
+var.respec-hl-c5{--bg-color:#eacfb6}
+var.respec-hl-c6{--bg-color:#82ddff}
+var.respec-hl-c7{--bg-color:#ffbcf2}
+@media print{
+var.respec-hl{background:0 0;color:#000;box-shadow:unset}
+}
+</style>
+<style>
+var[data-type]{position:relative}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#222}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#222;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "publishDate": "2025-06-17",
+  "latestVersion": "https://www.cta.tech/standards/cta-2120/",
+  "editors": [
+    {
+      "name": "Alexandra Blasgen",
+      "company": "Consumer Technology Association",
+      "mailto": "ablasgen@CTA.tech?subject=Inquiry regarding CTA-2120 Design Requirements for a Label for IoT Device Cybersecurity",
+      "url": "mailto:ablasgen@CTA.tech?subject=Inquiry regarding CTA-2120 Design Requirements for a Label for IoT Device Cybersecurity"
+    }
+  ],
+  "maxTocLevel": 3,
+  "edDraftURI": "",
+  "logos": [
+    {
+      "src": "https://cdn.cta.tech/cta/media/media/home/cta-logo.png",
+      "alt": "Consumer Technology Association (CTA)",
+      "height": 65,
+      "width": 100,
+      "id": "cta-logo",
+      "url": "https://cta.tech/"
+    }
+  ],
+  "publishISODate": "2025-06-17T00:00:00.000Z",
+  "generatedSubtitle": "17 June 2025"
+}</script>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/base.css">
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/dark.css" disabled=""></head>
+
+  <body class="h-entry informative"><div class="head">
+    <p class="logos"><a class="logo" href="https://cta.tech/"><img crossorigin="" alt="Consumer Technology Association (CTA)" height="65" id="cta-logo" src="https://cdn.cta.tech/cta/media/media/home/cta-logo.png" width="100">
+  </a></p>
+    <h1 id="title" class="title">Design Requirements for a Label for IoT Device Cybersecurity (CTA-2120)</h1> 
+    <p id="w3c-state"> <time class="dt-published" datetime="2025-06-17">17 June 2025</time></p>
+    <details open="">
+      <summary>More details about this document</summary>
+      <dl>
+        
+        <dt>Latest published version:</dt><dd>
+                  <a href="https://www.cta.tech/standards/cta-2120/">https://www.cta.tech/standards/cta-2120/</a>
+                </dd>
+        
+        
+        
+        
+        
+        
+        
+        <dt>
+                  Editor:
+                </dt><dd class="editor p-author h-card vcard">
+    <a class="ed_mailto u-email email p-name" href="mailto:ablasgen@CTA.tech?subject=Inquiry regarding CTA-2120 Design Requirements for a Label for IoT Device Cybersecurity">Alexandra Blasgen</a> (<span class="p-org org h-org">Consumer Technology Association</span>)
+  </dd>
+        
+        
+        
+        
+        
+      </dl>
+    </details>
+    
+    
+    <p class="copyright">
+
+<strong>NOTICE</strong><br>Consumer Technology Association (CTA)™ Standards, Bulletins and other technical publications are designed to serve the public interest through eliminating misunderstandings between manufacturers and purchasers, facilitating interchangeability and improvement of products, and assisting the reader in selecting and obtaining with minimum delay the proper product for the reader’s particular need. Existence of such Standards, Bulletins and other technical publications shall not in any respect preclude any member or nonmember of the Consumer Technology Association from manufacturing or selling products not conforming to such Standards, Bulletins or other technical publications, nor shall the existence of such Standards, Bulletins and other technical publications preclude their voluntary use by those other than Consumer Technology Association members, whether the standard is to be used either domestically or internationally.<br><br>
+<i>Standards and Publications are adopted by CTA in accordance with American National Standards Institute (ANSI) patent policy. By such action, neither CTA nor ANSI assumes any liability to any patent owner, nor does either organization assume any obligation whatever to parties adopting the Standard or Publication. CTA and ANSI take no position with respect to the validity of any Essential Patent Claim relating to this standard. Neither CTA nor ANSI is responsible for identifying patents for which a license may be required in order to comply with any CTA or ANS standard.</i><br><br>
+This document does not purport to address all safety problems associated with its use or all applicable regulatory requirements. It is the responsibility of the user of this document to establish appropriate safety and health practices and to determine the applicability of regulatory limitations before its use.<br><br>
+This document is copyrighted by the Consumer Technology Association (CTA)® and may not be reproduced, in whole or part, without written permission. Federal copyright law prohibits unauthorized reproduction of this document by any means. Organizations may obtain permission to reproduce a limited number of copies by entering into a license agreement. Requests to reproduce text, data, charts, figures or other material should be made to the Consumer Technology Association (CTA).<br><br>
+</p>
+    <hr title="Separator for header">
+  </div>
+
+
+    
+    <center>Published by ©CONSUMER TECHNOLOGY ASSOCIATION 2026 <br>Technology &amp; Standards Department <br><a href="https://www.cta.tech" target="_blank">www.CTA.tech</a><br><br>
+All rights reserved<br><br></center>
+<i>This online copy of this specification is provided for informational use. The controlling version is hosted at the "Latest published version" link above. In case of any discrepancies between this version and the published version, the published version prevails.</i>
+<p></p>
+
+    <section id="abstract" class="introductory"><h2>Abstract</h2>
+      <p>
+
+        This document defines a label structure that conveys information related to cybersecurity compliance with baseline security standards. The label is composed of a trademark and a mechanism (QR code) to link consumers to more detailed information. The detailed information is defined as JSON fields and in presentation form with an example in HTML. 
+        This standard was developed by the Consumer Technology Association’s R14 Cybersecurity and Privacy Management Committee. This is an approved and published CTA standard document. All CTA standards are available at <a href="https://CTA.tech/Standards" target="_blank">CTA.tech/Standards</a>.
+      </p>
+    </section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#scope"><bdi class="secno">1. </bdi>Scope</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">2. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">2.1 </bdi>Normative References</a></li><li class="tocline"><a class="tocxref" href="#normative-reference-list"><bdi class="secno">2.2 </bdi>Normative Reference List</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">2.3 </bdi>Informative References</a></li><li class="tocline"><a class="tocxref" href="#informative-reference-list"><bdi class="secno">2.4 </bdi>Informative Reference List</a></li></ol></li><li class="tocline"><a class="tocxref" href="#compliance-notation"><bdi class="secno">3. </bdi>Compliance Notation</a></li><li class="tocline"><a class="tocxref" href="#definitions-symbols-and-abbreviations"><bdi class="secno">4. </bdi>Definitions, Symbols and Abbreviations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#definitions"><bdi class="secno">4.1 </bdi>Definitions</a></li><li class="tocline"><a class="tocxref" href="#symbols-and-abbreviations"><bdi class="secno">4.2 </bdi>Symbols and Abbreviations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">5. </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#full-mark-design-layer-0"><bdi class="secno">6. </bdi>Full Mark Design – Layer 0</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#bounding-box-design"><bdi class="secno">6.1 </bdi>Bounding Box Design</a></li></ol></li><li class="tocline"><a class="tocxref" href="#qr-code-design"><bdi class="secno">7. </bdi>QR Code Design</a></li><li class="tocline"><a class="tocxref" href="#overview-of-linked-information-fields-layers-1-and-2"><bdi class="secno">8. </bdi>Overview of Linked Information Fields – Layers 1 and 2</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#required-elements-layer-1"><bdi class="secno">8.1 </bdi>Required Elements, Layer 1</a></li><li class="tocline"><a class="tocxref" href="#required-elements-layer-2"><bdi class="secno">8.2 </bdi>Required Elements, Layer 2</a></li></ol></li><li class="tocline"><a class="tocxref" href="#field-definitions"><bdi class="secno">9. </bdi>Field Definitions</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#structure-of-field-definitions"><bdi class="secno">9.1 </bdi>Structure of Field Definitions</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#presentation-type"><bdi class="secno">9.1.1 </bdi>Presentation Type</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#embedded-data-formats"><bdi class="secno">9.1.2 </bdi>Embedded Data Formats</a></li></ol></li><li class="tocline"><a class="tocxref" href="#first-linked-page-consumer-page"><bdi class="secno">9.2 </bdi>First Linked Page (Consumer Page)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#section-label-header-information"><bdi class="secno">9.2.1 </bdi>Section: Label Header Information</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#section-security-information"><bdi class="secno">9.2.2 </bdi>Section: Security Information</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#section-footer-information"><bdi class="secno">9.2.3 </bdi>Section: Footer Information</a><ol class="toc"></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#second-linked-page-technical-page"><bdi class="secno">9.3 </bdi>Second Linked Page (Technical Page)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#section-header-information"><bdi class="secno">9.3.1 </bdi>Section: Header Information</a></li><li class="tocline"><a class="tocxref" href="#section-additional-and-technical-information"><bdi class="secno">9.3.2 </bdi>Section: Additional and Technical Information</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#section-footer-information-0"><bdi class="secno">9.3.3 </bdi>Section: Footer Information</a></li><li class="tocline"><a class="tocxref" href="#section-non-displayable-information"><bdi class="secno">9.3.4 </bdi>Section: Non-Displayable Information</a><ol class="toc"></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#schema-and-other-resources"><bdi class="secno">10. </bdi>Schema and Other Resources</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#schema"><bdi class="secno">10.1 </bdi>Schema</a></li><li class="tocline"><a class="tocxref" href="#icons"><bdi class="secno">10.2 </bdi>Icons</a></li><li class="tocline"><a class="tocxref" href="#sample-html"><bdi class="secno">10.3 </bdi>Sample HTML</a></li></ol></li></ol></nav>
+
+
+
+
+
+
+
+<section id="scope"><div class="header-wrapper"><h2 id="x1-scope"><bdi class="secno">1. </bdi>Scope</h2><a class="self-link" href="#scope" aria-label="Permalink for Section 1."></a></div>
+<p>The label outlined in this standard is intended to convey information related to cybersecurity compliance with baseline security standards. The label is composed of several layers. The on-package layer (Layer 0) is a binary on-package marking with multiple elements, first a trademark and secondly, a mechanism to link consumers to more detailed information on layers one and two.</p>
+<p>Layer 1 is intended to present consumer-friendly information supporting the product’s qualification according to assessment criteria. Layer 2 is intended to have a more technical focus, and present information more relevant to a sophisticated consumer user, or perhaps a professional cybersecurity user.</p>
+<p>This standard also defines how data fields are to be presented in order to ensure consistent display and a standardized format for communication in the API.&nbsp;</p>
+<p>All intellectual property necessary to print and use the Full Mark or Technical Mark should be portable within the program scheme. Icons used in this standard (Section 4.2) are available at <a href="https://github.com/cta-source/standards/tree/main/cta-2120">https://github.com/cta-source/standards/tree/main/cta-2120</a>. This approach ensures portability in the situation where multiple third-party certifiers may be required to support program capacity and consistent presentation to end-users.</p>
+</section><section id="references"><div class="header-wrapper"><h2 id="x2-references"><bdi class="secno">2. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Section 2."></a></div>
+<section id="normative-references"><div class="header-wrapper"><h3 id="x2-1-normative-references"><bdi class="secno">2.1 </bdi>Normative References</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Section 2.1"></a></div>
+<p>The following standards contain provisions that, through reference in this text, constitute normative provisions of this standard. At the time of publication, the editions indicated were valid. All standards are subject to revision, and parties to agreements based on this standard are encouraged to investigate the possibility of applying the most recent editions of the standards listed here.</p>
+</section><section id="normative-reference-list"><div class="header-wrapper"><h3 id="x2-2-normative-reference-list"><bdi class="secno">2.2 </bdi>Normative Reference List</h3><a class="self-link" href="#normative-reference-list" aria-label="Permalink for Section 2.2"></a></div>
+<ol>
+<li>ISO/IEC 18004, <em>Information technology — Automatic identification and data capture techniques — QR Code bar code symbology specification</em>, 2024-08, <a href="https://www.iso.org/standards.html">https://www.iso.org/standards.html</a>.</li>
+<li>ISO/IEC 15415, <em>Information technology — Automatic identification and data capture techniques — Bar code symbol print quality test specification — Two-dimensional symbols</em>, 2011-12-15, <a href="https://www.iso.org/standards.html">https://www.iso.org/standards.html</a>.</li>
+<li>GS1 General Specifications, <a href="https://www.gs1us.org/industries-and-insights/standards">https://www.gs1us.org/industries-and-insights/standards</a>.</li>
+<li>Emami-Naeini, P. et al. <em>Specification for CMU IoT Security and Privacy Label (CISPL 1.0)</em>, January 17, 2021, <a href="https://www.iotsecurityprivacy.org/downloads/Privacy_and_Security_Specifications.pdf">https://www.iotsecurityprivacy.org/downloads/Privacy_and_Security_Specifications.pdf</a>.</li>
+</ol>
+</section><section id="informative-references"><div class="header-wrapper"><h3 id="x2-3-informative-references"><bdi class="secno">2.3 </bdi>Informative References</h3><a class="self-link" href="#informative-references" aria-label="Permalink for Section 2.3"></a></div>
+<p>The following references contain provisions that, through reference in this text, constitute informative provisions of this standard. At the time of publication, the edition indicated was valid. All standards are subject to revision, and parties to agreements based on this standard are encouraged to investigate the possibility of applying the most recent edition of the standard indicated below.</p>
+</section><section id="informative-reference-list"><div class="header-wrapper"><h3 id="x2-4-informative-reference-list"><bdi class="secno">2.4 </bdi>Informative Reference List</h3><a class="self-link" href="#informative-reference-list" aria-label="Permalink for Section 2.4"></a></div>
+<ol start="5">
+<li>NIST Whitepaper, <em>Recommended Criteria for Cybersecurity Labeling for Consumer Internet of Things (IoT) Products</em>, <a href="https://doi.org/10.6028/NIST.CSWP.02042022-2">https://doi.org/10.6028/NIST.CSWP.02042022-2</a>.</li>
+<li>ANSI/CTA-2119, Framework for Evaluation of a Cybersecurity Scheme, 2025, <a href="https://www.cta.tech/standards">https://www.cta.tech/standards</a>.</li>
+<li><em>Cybersecurity Labeling for Internet of Things</em> Final Rule (“Order”), PSHSB: PS Docket No. 23-239, 89 FR 61242 (pub. July 30, 2024), <a href="https://www.federalregister.gov/documents/2024/07/30/2024-14148/cybersecurity-labeling-for-internet-of-things">https://www.federalregister.gov/documents/2024/07/30/2024-14148/cybersecurity-labeling-for-internet-of-things</a>.</li>
+<li>W3C <em>Web Content Accessibility Guidelines (WCAG)</em>1-2018, <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">https://www.w3.org/WAI/standards-guidelines/wcag/</a>.</li>
+<li>The IoT Privacy and Security Label - Carnegie Mellon University <a href="https://www.iotsecurityprivacy.org/">https://www.iotsecurityprivacy.org/</a></li>
+<li>IETF RFC 9116, <em>A File Format to Aid in Security Vulnerability Disclosure</em>, <a href="https://www.rfc-editor.org/rfc/rfc9116">https://www.rfc-editor.org/rfc/rfc9116</a>.</li>
+</ol>
+</section></section><section id="compliance-notation"><div class="header-wrapper"><h2 id="x3-compliance-notation"><bdi class="secno">3. </bdi>Compliance Notation</h2><a class="self-link" href="#compliance-notation" aria-label="Permalink for Section 3."></a></div>
+<p>CTA defines the following compliance terms for use in its documents:</p>
+<table>
+<tbody>
+<tr>
+<td width="96">
+<p><strong>shall </strong></p>
+</td>
+<td width="456">
+<p>This word indicates specific provisions that are to be followed strictly (no deviation is permitted).</p>
+</td>
+</tr>
+<tr>
+<td width="96">
+<p><strong>shall not </strong></p>
+</td>
+<td width="456">
+<p>This phrase indicates specific provisions that are absolutely prohibited.</p>
+</td>
+</tr>
+<tr>
+<td width="96">
+<p><strong>should </strong></p>
+</td>
+<td width="456">
+<p>This word indicates that a certain course of action is preferred but not necessarily required.</p>
+</td>
+</tr>
+<tr>
+<td width="96">
+<p><strong>should not </strong></p>
+</td>
+<td width="456">
+<p>This phrase means a certain possibility or course of action is undesirable but not prohibited.</p>
+</td>
+</tr>
+<tr>
+<td width="96">
+<p><strong>may</strong></p>
+</td>
+<td width="456">
+<p>This phrase indicates that a certain course of action is optional.</p>
+</td>
+</tr>
+<tr>
+<td width="96">
+<p><strong>need not</strong></p>
+</td>
+<td width="456">
+<p>This phrase indicates that a certain course of action is not required (i.e., optional), and this document does not express a recommendation as to preference.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section><section id="definitions-symbols-and-abbreviations"><div class="header-wrapper"><h2 id="x4-definitions-symbols-and-abbreviations"><bdi class="secno">4. </bdi>Definitions, Symbols and Abbreviations</h2><a class="self-link" href="#definitions-symbols-and-abbreviations" aria-label="Permalink for Section 4."></a></div>
+
+<section id="definitions"><div class="header-wrapper"><h3 id="x4-1-definitions"><bdi class="secno">4.1 </bdi>Definitions</h3><a class="self-link" href="#definitions" aria-label="Permalink for Section 4.1"></a></div>
+<p><strong>Bounding Box</strong>: A graphic outline (“box”) intended to contain the elements of the Full Mark.</p>
+<p><strong>First Linked Page (“Layer 1”)</strong>: This page carries a limited amount of important security information suitable for the average consumer.</p>
+<p><strong>Full Mark: </strong>A cybersecurity indicator used on consumer-visible packaging along with other branded product information; the Full Mark includes the Technical Mark and Trademarked Components.</p>
+<p><strong>Module</strong>: The smallest element (black or white square) of the QR code.</p>
+<p><strong>QR Code Zone Width</strong>: Linear distance necessary to contain the QR code and two quiet zones horizontally.</p>
+<p><strong>QR Code Zone Height</strong>: Linear distance necessary to contain the QR code and two quiet zones vertically.</p>
+<p><strong>QR Code</strong>: Follows the definition of GS1 QR Code, which is an encoding of element strings that does not support micro QR codes, nor the encoding of Kanji characters.</p>
+<p><strong>Quiet Zone</strong>: Follows the definition from ISO/IEC 18004: This is a region which shall be free of all other markings, surrounding the symbol on all four sides. Its nominal reflectance value shall be equal to that of the light modules.</p>
+<p><strong>Second Linked Page (“Layer 2”)</strong>: This page carries information to support more technical users, researchers, and others who require such details.</p>
+<p><strong>Technical Mark</strong>: A graphical component intended for application to or inclusion in the printed outer package (sometimes called the “gift box” in consumer products). The Technical Mark does not include the Trademark Components. It does include space for the Trademark Components, the QR Code and human-readable URL.</p>
+<p><strong>Trademark Components</strong>: Identifying and protected (trademarked) graphical and/or text elements; the Trademark Components are out-of-scope for this technical standard except in as the standard defines allowable space.<a href="#_ftn1" name="_ftnref1">[1]</a></p>
+<p><strong>Trademark Zone: </strong>Area within the technical mark that accommodates a scheme owner mark.</p>
+<p><strong>Trademark Zone Width</strong>: Linear distance necessary to contain the Trademark components.</p>
+<p><strong>Trademark Zone Height</strong>: Linear distance necessary to contain the Trademark components.</p>
+<p><strong>URL Zone Height</strong>: Linear distance that defines the vertical space occupied by the human-readable URL Code and associated clearances.</p>
+<p><strong>URL Zone Width: </strong>The linear distance that defines the horizontal space occupied by the URL Code and associated clearances.</p>
+
+</section><section id="symbols-and-abbreviations"><div class="header-wrapper"><h3 id="x4-2-symbols-and-abbreviations"><bdi class="secno">4.2 </bdi>Symbols and Abbreviations</h3><a class="self-link" href="#symbols-and-abbreviations" aria-label="Permalink for Section 4.2"></a></div>
+<p>This section is informative. See Section 9.1.1 for more detail.</p>
+
+<table width="599">
+<tbody>
+<tr>
+<td width="130">
+<p><strong>Symbol</strong></p>
+</td>
+<td width="469">
+<p><strong>Explanation</strong></p>
+</td>
+</tr>
+<tr>
+<td width="130">
+     <img src="camera-icon.png" alt="camera icon" width="65" height="82">
+</td>
+<td width="469">
+<p>This symbol indicates capture of visual media.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+     <img src="mic-icon.png" alt="microphone icon" width="49" height="89">
+</td>
+<td width="469">
+<p>This symbol indicates capture of audio data.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+     <img src="location-icon.png" alt="location icon" width="84" height="84">
+</td>
+<td width="469">
+<p>This symbol indicates location can be determined.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<p>The individual icons above used in this standard are available at <a href="https://github.com/cta-source/standards/tree/main/cta-2120">https://github.com/cta-source/standards/tree/main/cta-2120</a>.</p>
+</section></section><section id="overview"><div class="header-wrapper"><h2 id="x5-overview"><bdi class="secno">5. </bdi>Overview</h2><a class="self-link" href="#overview" aria-label="Permalink for Section 5."></a></div>
+<p>This standard specifies a Technical Mark intended to be used as part of a Full Mark (which includes additional information). The Full Mark conveys to a consumer that the product meets certain cybersecurity requirements.</p>
+<p>Elements of the Full Mark include the following:</p>
+
+<ul>
+    <li>Full Mark</li>
+    <ul>
+       <li>Trademark Components (out of scope for this document except as it defines allowable space)</li>
+       <li>Technical Mark</li>
+       <ul>
+          <li>Bounding Box</li>
+          <li>QR Code</li>
+       </ul>
+    </ul>
+</ul>
+
+</section><section id="full-mark-design-layer-0"><div class="header-wrapper"><h2 id="x6-full-mark-design-layer-0"><bdi class="secno">6. </bdi>Full Mark Design – Layer 0</h2><a class="self-link" href="#full-mark-design-layer-0" aria-label="Permalink for Section 6."></a></div>
+<p>This section specifies the on-package design (the Technical Mark, excluding the trademarked components) with a QR code and a Bounding Box.</p>
+<p>The scope of this on-package design does not include use of the trademarked components when they are not accompanied by the QR code. For marketing reasons, the trademarked components may be placed separately in a prominent location, such as the front of the product packaging, with the same icon accompanied by the Technical Mark perhaps on the back of the packaging.</p>
+<section id="bounding-box-design"><div class="header-wrapper"><h3 id="x6-1-bounding-box-design"><bdi class="secno">6.1 </bdi>Bounding Box Design</h3><a class="self-link" href="#bounding-box-design" aria-label="Permalink for Section 6.1"></a></div>
+<p>The bounding box shall be a graphical element of an unfilled rectangular box, defined with a line of the darkest color available in the package design. Manufacturers should ensure color contrast to ensure readability given the expected distance and technology of the consumer.</p>
+<ol type="A">
+<li>The bounding box shall be oriented vertically or horizontally. Whichever way it is oriented, the scheme owner’s mark or trademark must appear either above or to the left of the QR code as viewed on the package.</li>
+<li>The bounding box shall not violate the minimum quiet zone of the QR code.</li>
+<li>Bounding box must be sized to ensure legibility of the scheme owner mark and ensure QR code legibility with expected technology.</li>
+<li>Bounding box width is the sum of: 3x quiet zones + symbol width (or diameter) + QR code width.</li>
+<li>Bounding box height is the sum of two quiet zones + QR code height.</li>
+</ol>
+
+   <figure id="fig-bounding-box-with-elements-depicted">
+     <img src="figure-1-bounding-box.png" alt="figure one, bounding box with elements depicted" width="672" height="416">
+     <figcaption><a class="self-link" href="#fig-bounding-box-with-elements-depicted">Figure <bdi class="figno">1</bdi></a> <span class="fig-title">Bounding box with elements depicted</span></figcaption>
+   </figure>
+
+<p>The Full Mark will be divided into three zones: the QR Zone, the Trademark Zone, and the URL Zone.</p>
+<p>The Zones may be arranged in any of the following layouts:</p>
+<ul>
+<li>Horizontal Layout (Figure 2):
+<ul>
+<li>The Trademark Zone must be placed immediately to the left of the QR Zone.</li>
+<li>The Trademark Zone and QR Zone must have identical heights.</li>
+<li>The URL Zone must appear below all other zones.</li>
+<li>The width of the URL Zone must be equal to the full width of the label.</li>
+<li>Vertical positions of the top edges of the Trademark Zone and the QR Zone must be identical.</li>
+<li>Horizontal positions of the left edges of the Trademark Zone and the URL Zone must be identical.</li>
+<li>Horizontal positions of the right edges of the QR Zone and the URL Zone must be identical.</li>
+<li>The height of the URL Zone should be less than or equal to 20% of the height of the other Zones.</li>
+</ul>
+</li>
+<li>Vertical Layout A (Figure 3):
+<ul>
+<li>The Trademark Zone must be placed immediately above the QR Zone.</li>
+<li>The URL Zone must appear below all other zones.</li>
+<li>The Trademark Zone, QR Zone, and URL Zone must have identical widths.</li>
+<li>Horizontal positions of the left edges of all Zones must be identical.</li>
+<li>Horizontal positions of the right edges of all Zones must be identical.</li>
+<li>The height of the URL Zone should be less than or equal to 20% of the height of the other Zones.</li>
+</ul>
+</li>
+<li>Vertical Layout B (Figure 4):
+<ul>
+<li>The Trademark Zone must be placed immediately above the QR Zone.</li>
+<li>The Trademark Zone and QR Zone must have identical widths.</li>
+<li>The URL Zone must appear to the right of all other zones, with text rotated 90° clockwise from horizontal.</li>
+<li>The height of the URL Zone must be equal to the full width of the label.</li>
+<li>Vertical positions of the top edges of the Trademark Zone and the URL Zone must be identical.</li>
+<li>Vertical positions of the bottom edges of the QR Zone and the URL Zone must be identical.</li>
+<li>Horizontal positions of the left edges of the Trademark Zone and the QR Zone must be identical.</li>
+<li>The width of the URL Zone should be less than or equal to 20% of the width of the other Zones.</li>
+</ul>
+</li>
+</ul>
+
+   <figure id="fig-horizontal-layout">
+     <img src="figure-2-horizontal-layout.png" alt="figure two, horizontal Layout" width="672" height="385">
+     <figcaption><a class="self-link" href="#fig-horizontal-layout">Figure <bdi class="figno">2</bdi></a> <span class="fig-title">Horizontal Layout</span></figcaption>
+   </figure>
+
+   <figure id="fig-vertical-layout-a">
+     <img src="figure-3-vertical-layout-a.png" alt="figure three, vertical layout a" width="672" height="619">
+     <figcaption><a class="self-link" href="#fig-vertical-layout-a">Figure <bdi class="figno">3</bdi></a> <span class="fig-title">Vertical Layout A</span></figcaption>
+   </figure>
+
+   <figure id="fig-vertical-layout-b">
+     <img src="figure-4-vertical-layout-b.png" alt="figure four, vertical layout b" width="672" height="622">
+     <figcaption><a class="self-link" href="#fig-vertical-layout-b">Figure <bdi class="figno">4</bdi></a> <span class="fig-title">Vertical Layout B</span></figcaption>
+   </figure>
+
+<p>General constraints:</p>
+<ul>
+<li>The size of the QR Zone includes the Quiet Zone and the QR Code.</li>
+<li>No zone may impinge upon or overlap the area of another zone.</li>
+<li>The Label shall be rectangular.</li>
+<li>The QR Zone shall be a square.</li>
+<li>The Trademark Zone shall have an aspect ratio equal to that of the Trademark Components.</li>
+<li>Adjacent Zones should be separated from each other by at least 0.5mm.</li>
+</ul>
+<p>Content:</p>
+<ul>
+<li>Text in the URL Zone may be scaled or wrapped to fit in the allowed space.</li>
+<li>Within the URL Zone, the URL text must be aligned left, right, or centered.</li>
+<li>It is recommended to use a sans-serif, high-legibility font for the URL.</li>
+<li>A five-point font should be considered a minimum size for legibility.</li>
+</ul>
+<p>Scaling:</p>
+<ul>
+<li>The Label may be scaled as needed to accommodate the packaging design and the URL so long as the other constraints are met.</li>
+<li>The Trademark shall be scaled to fill the Trademark Zone.</li>
+<li>The QR Code, inclusive of the Quiet Zone, shall be scaled to fill the QR Zone.</li>
+</ul>
+</section></section><section id="qr-code-design"><div class="header-wrapper"><h2 id="x7-qr-code-design"><bdi class="secno">7. </bdi>QR Code Design</h2><a class="self-link" href="#qr-code-design" aria-label="Permalink for Section 7."></a></div>
+<p>This section provides the requirements for the QR code (encoding, data density, relevant standard).</p>
+<p>This section considers usage requirements, such as placement, clear space required around the Full Mark, and color vs. black-and-white printing.</p>
+<p>Mark usage is typically defined in a license agreement related to a full cybersecurity label program. However, key usage details are defined here.</p>
+<p>The QR Code shall be comprised of the encoded character string for the URL or other resource identifier of the First Linked Page according to ISO/IEC 18004 [1]. The QR code size shall adhere to the ISO/IEC 18004 sizes ranging from 21 x 21 modules to 177 x 177 modules, which excludes micro QR sizes. The size of the QR Code shall comply to ISO/IEC 18004 and shall be comprised of modules at least 0.254mm x 0.254mm. The selected module size should be appropriate to the distance, lighting, and typical devices owned by readers. The code should be surrounded by four (4) modules on all four sides.</p>
+<p>The QR Code Quality should meet the following: [3] OR 1.5/(**)/660 where ** is the aperture size best matching the expected reading distance, as per ISO/IEC 15415 [2].</p>
+<p>The Mark may be presented in either light on dark or dark on light, depending on the surface intended to carry the Mark. In all printed versions, adequate contrast must ensure legibility for code and any human readable content.</p>
+</section><section id="overview-of-linked-information-fields-layers-1-and-2"><div class="header-wrapper"><h2 id="x8-overview-of-linked-information-fields-layers-1-and-2"><bdi class="secno">8. </bdi>Overview of Linked Information Fields – Layers 1 and 2</h2><a class="self-link" href="#overview-of-linked-information-fields-layers-1-and-2" aria-label="Permalink for Section 8."></a></div>
+<p>This section defines the information fields required for the “linked pages” pointed to by the QR code.</p>
+<p>The Label shall have two pages. A first page (Layer 1 or L1) shall be presented first and provide a link to a second page (Layer 2 or L2). Layer 1 is the initial “consumer-facing” presentation. Layer 2 provides additional information for advanced users, researchers or others. Both pages should be designed in accordance with industry accessibility best practices, including ensuring that all information is available via text-to-speech readers.&nbsp;</p>
+<p><strong>Layer 1</strong> (consumer-friendly page): This page carries a limited amount of important security information suitable for the average consumer.</p>
+<p><strong>Layer 2</strong> (technical detail page): This page carries information to support more technical users, researchers, and others who require such details.</p>
+<p>A sample implementation of L1 and L2 in HTML/CSS may be found in Annex A.</p>
+<p>Figure 5 shows a sample of the on-line label presentation, Layer 1 (left) and second linked page, Layer 2 (right).</p>
+<section id="required-elements-layer-1"><div class="header-wrapper"><h3 id="x8-1-required-elements-layer-1"><bdi class="secno">8.1 </bdi>Required Elements, Layer 1</h3><a class="self-link" href="#required-elements-layer-1" aria-label="Permalink for Section 8.1"></a></div>
+<p>The first page shall incorporate the following elements.</p>
+<p><strong>Title:</strong> This is the text, “Security Overview”.</p>
+<p><strong>Program Mark:</strong> This is the trademark (certification mark) of the program.</p>
+<p><strong>About This Label: </strong>This is the following text, <em>“About This Label: This product is certified under the Federal Communications Commission U.S. Cyber Trust Mark Labeling Program. This product has been tested and approved to meet certain minimum cybersecurity standards. For more information about the U.S. Cyber Trust Mark Labeling Program, please visit: </em><a href="https://fcc.gov/cybertrustmark"><em>https://fcc.gov/cybertrustmark</em></a><em>”</em>. Note, this text may be modified or substituted at the discretion of the program owner.</p>
+<p><strong>Language option:</strong> English or Spanish.</p>
+<p><strong>Layer 1 Fields:</strong> These shall conform with the requirements in Section 9.2 First Linked Page (Consumer Page).</p>
+</section><section id="required-elements-layer-2"><div class="header-wrapper"><h3 id="x8-2-required-elements-layer-2"><bdi class="secno">8.2 </bdi>Required Elements, Layer 2</h3><a class="self-link" href="#required-elements-layer-2" aria-label="Permalink for Section 8.2"></a></div>
+<p>The second page shall incorporate the following elements.</p>
+<p><strong>Title:</strong> This is the text, “Security Overview”.</p>
+<p><strong>Program Mark:</strong> This is the trademark (certification mark) of the program.</p>
+<p><strong>About This Label:</strong> This is the following text, <em>“This page carries advanced information to support more technical users, researchers and others who require such details. To return to the basics page, see --link--.”</em> The portion denoted as “--link--” shall be replaced with a hyperlink to Layer 1. Note, this text may be modified or substituted at the discretion of the program owner.</p>
+<p><strong>Language option:</strong> English or Spanish.</p>
+<p><strong>Layer 2 Fields:</strong> These shall conform with the requirements in Section 9.3, Second Linked Page (Technical Page).</p>
+
+   <figure id="fig-sample-layout-of-the-on-line-label-presentation-layer-1-left-and-second-linked-page-layer-2-right">
+     <img src="figure-5-sample-layout.png" alt="figure five, sample layout of the on line label presentation, layer 1 left and second linked page, layer 2 right" width="701" height="1033">
+     <figcaption><a class="self-link" href="#fig-sample-layout-of-the-on-line-label-presentation-layer-1-left-and-second-linked-page-layer-2-right">Figure <bdi class="figno">5</bdi></a> <span class="fig-title">Sample layout of the on-line label presentation, Layer 1 (left) and second linked page, Layer 2 (right)</span></figcaption>
+   </figure>
+
+</section></section><section id="field-definitions"><div class="header-wrapper"><h2 id="x9-field-definitions"><bdi class="secno">9. </bdi>Field Definitions</h2><a class="self-link" href="#field-definitions" aria-label="Permalink for Section 9."></a></div>
+<p>These field definitions are presented according to the following Structure of Field Definitions (section 9.1) and enumerated in the List of Field Definitions (section 9.2) that follows.</p>
+<section id="structure-of-field-definitions"><div class="header-wrapper"><h3 id="x9-1-structure-of-field-definitions"><bdi class="secno">9.1 </bdi>Structure of Field Definitions</h3><a class="self-link" href="#structure-of-field-definitions" aria-label="Permalink for Section 9.1"></a></div>
+<p>This information clarifies elements of the List of Field Definitions section (section 9.2) that follows.</p>
+<section id="presentation-type"><div class="header-wrapper"><h4 id="x9-1-1-presentation-type"><bdi class="secno">9.1.1 </bdi>Presentation Type</h4><a class="self-link" href="#presentation-type" aria-label="Permalink for Section 9.1.1"></a></div>
+<p>This determines a presentation format as follows.</p>
+<section id="presentation-type-general"><div class="header-wrapper"><h5 id="x9-1-1-1-presentation-type-general"><bdi class="secno">9.1.1.1 </bdi>Presentation Type: “General”</h5><a class="self-link" href="#presentation-type-general" aria-label="Permalink for Section 9.1.1.1"></a></div>
+<p>The subheading is left-justified, in bold font, and followed by a colon (no spaces). On the next line the Field Value is in normal font and is left-justified and indented.</p>
+<p>Example:</p>
+<table width="412">
+<thead>
+<tr>
+<td width="412">
+<p><strong>Support Period:</strong></p>
+</td>
+</tr>
+<tr>
+<td width="412">
+<p style="text-indent: 40px;">No guaranteed support period.</p>
+</td>
+</tr>
+</thead>
+</table>
+</section><section id="presentation-type-simple"><div class="header-wrapper"><h5 id="x9-1-1-2-presentation-type-simple"><bdi class="secno">9.1.1.2 </bdi>Presentation Type: “Simple”</h5><a class="self-link" href="#presentation-type-simple" aria-label="Permalink for Section 9.1.1.2"></a></div>
+<p>The subheading is left-justified, in bold font, and followed by a colon (no spaces). On the same line the Field Value follows in plain font. If the field requires more than one string (such as “Authorized By” or “Tested By”), strings shall be placed on separate lines.</p>
+<p>Example:</p>
+<table>
+<tbody>
+<tr>
+<td width="414">
+<p><strong>Tested By: </strong>Ungoliant Laboratories</p>
+<p>http://ungoliantlabs.com/contact.html</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section><section id="presentation-type-non-display"><div class="header-wrapper"><h5 id="x9-1-1-3-presentation-type-non-display"><bdi class="secno">9.1.1.3 </bdi>Presentation Type: “Non-Display”</h5><a class="self-link" href="#presentation-type-non-display" aria-label="Permalink for Section 9.1.1.3"></a></div>
+<p>Non-display type fields are carried in the JSON Schema data but not displayed to the consumer or others.</p>
+</section><section id="presentation-type-mixed-image-and-text"><div class="header-wrapper"><h5 id="x9-1-1-4-presentation-type-mixed-image-and-text"><bdi class="secno">9.1.1.4 </bdi>Presentation Type: “Mixed (image and text)”</h5><a class="self-link" href="#presentation-type-mixed-image-and-text" aria-label="Permalink for Section 9.1.1.4"></a></div>
+<p>This format is only used for the sensor_data_collection field at this time.</p>
+<table width="672">
+<thead>
+<tr>
+<td width="191">
+<p><strong>sensor_data_collection</strong></p>
+<p>sensing Parameter Value</p>
+</td>
+<td width="174">
+<p>description <strong>if </strong>has=true</p>
+</td>
+<td width="144">
+<p>description <strong>if </strong>has=false</p>
+</td>
+<td width="163">
+<p>icons</p>
+</td>
+</tr>
+<tr>
+<td width="191">
+<p>images</p>
+</td>
+<td width="174">
+<p>“This product can capture images or video.”</p>
+</td>
+<td width="144">
+<p>“This product cannot capture images or video.”</p>
+</td>
+<td width="163">
+<p>Links to ‘camera’ icon or ‘not camera’ icon (as appropriate)</p>
+</td>
+</tr>
+<tr>
+<td width="191">
+<p>audio</p>
+</td>
+<td width="174">
+<p>“This product can capture audio.”</p>
+</td>
+<td width="144">
+<p>“This product cannot capture audio.”</p>
+</td>
+<td width="163">
+<p>Links to ‘microphone’ icon or ‘not microphone’ icon (as appropriate)</p>
+</td>
+</tr>
+<tr>
+<td width="191">
+<p>position</p>
+</td>
+<td width="174">
+<p>“This product can determine location.”</p>
+</td>
+<td width="144">
+<p>“This product cannot determine location.”</p>
+</td>
+<td width="163">
+<p>Links to ‘compass’ icon or ‘not compass’ icon (as appropriate)</p>
+</td>
+</tr>
+</thead>
+</table>
+<p>Example:</p>
+
+   <figure id="fig-example-of-sensor-information-for-label-layer-1">
+     <img src="figure-6-example-of-sensor.png" alt="figure six, Example of sensor information for label Layer 1" width="656" height="290">
+     <figcaption><a class="self-link" href="#fig-example-of-sensor-information-for-label-layer-1">Figure <bdi class="figno">6</bdi></a> <span class="fig-title">Example of sensor information for label Layer 1</span></figcaption>
+   </figure>
+
+<p>The individual icon options are as follows (note, implementors should refer to the on-line image files available at <a href="https://github.com/cta-source/standards/tree/main/cta-2120">https://github.com/cta-source/standards/tree/main/cta-2120</a>):</p>
+
+
+   <figure id="fig-camera-icon-for-products-with-imaging-or-video-capture-capability">
+     <img src="camera-icon.png" alt="camera icon (for products with imaging or video capture capability)" width="130" height="163">
+     <figcaption><a class="self-link" href="#fig-camera-icon-for-products-with-imaging-or-video-capture-capability">Figure <bdi class="figno">7</bdi></a> <span class="fig-title">Camera icon (for products with imaging or video capture capability)</span></figcaption>
+   </figure>
+
+   <figure id="fig-microphone-icon-for-products-with-audio-capture-capability">
+     <img src="mic-icon.png" alt="microphone icon (for products with audio capture capability)" width="97" height="177">
+     <figcaption><a class="self-link" href="#fig-microphone-icon-for-products-with-audio-capture-capability">Figure <bdi class="figno">8</bdi></a> <span class="fig-title">Microphone icon (for products with audio capture capability)</span></figcaption>
+   </figure>
+
+   <figure id="fig-compass-icon-for-products-with-location-determination-capability">
+     <img src="location-icon.png" alt="compass icon (for products with location determination capability)" width="168" height="168">
+     <figcaption><a class="self-link" href="#fig-compass-icon-for-products-with-location-determination-capability">Figure <bdi class="figno">9</bdi></a> <span class="fig-title">Compass icon (for products with location determination capability)</span></figcaption>
+   </figure>
+
+<p>When a product does not have one or more of the capabilities identified above, the icon is greyed out to such an extent as to be visible but clearly different; 80% luminance is suggested. The text is not greyed out. Below are examples of greyed and not-greyed options with corresponding text:</p>
+
+   <figure id="fig-example-of-with-capability-not-greyed-and-without-capability-greyed">
+     <img src="figure-10-example-of-with.png" alt="figure ten, example of “with capability” (not greyed) and “without capability” (greyed)" width="740" height="290">
+     <figcaption><a class="self-link" href="#fig-example-of-with-capability-not-greyed-and-without-capability-greyed">Figure <bdi class="figno">10</bdi></a> <span class="fig-title">Example of “with capability” (not greyed) and “without capability” (greyed)</span></figcaption>
+   </figure>
+
+</section></section><section id="embedded-data-formats"><div class="header-wrapper"><h4 id="x9-1-2-embedded-data-formats"><bdi class="secno">9.1.2 </bdi>Embedded Data Formats</h4><a class="self-link" href="#embedded-data-formats" aria-label="Permalink for Section 9.1.2"></a></div>
+<ul>
+<li>URLs: URLs shall be strings in RFC 1738 format – i.e., the form “https://domain...”. URLs shall be limited to 256 characters including any terminating characters (e.g., null terminators if applicable).</li>
+<li>Strings: Strings other than dates or URLs shall be of maximum length of 2048 characters.</li>
+<li>Timestamps shall be a valid RFC 3339-formatted timestamp, in either “full-date” or “date-time” formats.
+<ul>
+<li>Example: yyyy-mm-ddThh:mm:ss[.s+]Z</li>
+<li>Example 2: yyyy-mm-ddThh:mm:ss[.s+]-05:00 (for US Eastern Standard Time)</li>
+<li>Example 3: yyyy-mm-ddThh:mm:ss[.s+]+09:00 (for Japan Standard Time)</li>
+<li>Example 4: yyyy-mm-dd (“full-date” format)</li>
+<li>Where: the "s+" represents 1 or more sub-second values.</li>
+<li>The brackets denote that sub-second precision is optional, and that if no digits are provided, the decimal place shall not be present.</li>
+</ul>
+</li>
+</ul>
+</section></section><section id="first-linked-page-consumer-page"><div class="header-wrapper"><h3 id="x9-2-first-linked-page-consumer-page"><bdi class="secno">9.2 </bdi>First Linked Page (Consumer Page)</h3><a class="self-link" href="#first-linked-page-consumer-page" aria-label="Permalink for Section 9.2"></a></div>
+<p>This section defines the specific cybersecurity label parameters (“Fields”). These parameters are mostly specific to the manufacturer, product, lab and authorization body involved in this product certification.</p>
+<p>These Fields are presented alphabetically here. For the presentation of the Fields to the user or consumer, see section 8.</p>
+<section id="section-label-header-information"><div class="header-wrapper"><h4 id="x9-2-1-section-label-header-information"><bdi class="secno">9.2.1 </bdi>Section: Label Header Information</h4><a class="self-link" href="#section-label-header-information" aria-label="Permalink for Section 9.2.1"></a></div>
+<p>The Label Header is presented immediately below the Trademark Components on both L1 and L2 pages and carries the product and manufacturer names.</p>
+<section id="subheading-product-name"><div class="header-wrapper"><h5 id="x9-2-1-1-subheading-product-name"><bdi class="secno">9.2.1.1 </bdi>Subheading: “Product Name”</h5><a class="self-link" href="#subheading-product-name" aria-label="Permalink for Section 9.2.1.1"></a></div>
+<p>This Field is consumer-facing.</p>
+<p><strong>Schema Field</strong>: product_name</p>
+<p><strong>Presentation Type:</strong> Simple <em>(note, for information on “Presentation Type”, see the above section Structure of Field Definitions)</em>.</p>
+<p><strong>Field Value Type:</strong> String <em>(note, for this and all strings, URLs and dates, see notes on lengths and formats in section “Embedded Data Formats”, above).</em></p>
+<p><strong>Description: </strong>This is the product name found on the manufacturer's application for authorization to use the Mark. Other product names should be listed on the web page found at the Manufacturer's site.</p>
+</section><section id="subheading-manufacturer-name"><div class="header-wrapper"><h5 id="x9-2-1-2-subheading-manufacturer-name"><bdi class="secno">9.2.1.2 </bdi>Subheading: “Manufacturer Name”</h5><a class="self-link" href="#subheading-manufacturer-name" aria-label="Permalink for Section 9.2.1.2"></a></div>
+<p>This Field is consumer-facing.</p>
+<p><strong>Schema Field</strong>: manufacturer_name</p>
+<p><strong>Presentation Type:</strong> Simple</p>
+<p><strong>Field Value Type:</strong> String</p>
+<p><strong>Description: </strong>This is the Applicant (manufacturer) name found on the manufacturer's application for authorization to use the Mark.</p>
+</section><section id="subheading-product-model"><div class="header-wrapper"><h5 id="x9-2-1-3-subheading-product-model"><bdi class="secno">9.2.1.3 </bdi>Subheading: “Product Model”</h5><a class="self-link" href="#subheading-product-model" aria-label="Permalink for Section 9.2.1.3"></a></div>
+<p>This Field is consumer-facing.</p>
+<p><strong>Schema Field</strong>: product_model</p>
+<p><strong>Presentation Type:</strong> Simple</p>
+<p><strong>Field Value Type:</strong> String</p>
+<p><strong>Description: </strong>This is the consumer-facing alphanumeric identifier of the model of the IoT Product.</p>
+</section></section><section id="section-security-information"><div class="header-wrapper"><h4 id="x9-2-2-section-security-information"><bdi class="secno">9.2.2 </bdi>Section: Security Information</h4><a class="self-link" href="#section-security-information" aria-label="Permalink for Section 9.2.2"></a></div>
+<section id="subheading-sensor-data-collection"><div class="header-wrapper"><h5 id="x9-2-2-1-subheading-sensor-data-collection"><bdi class="secno">9.2.2.1 </bdi>Subheading: “Sensor Data Collection”</h5><a class="self-link" href="#subheading-sensor-data-collection" aria-label="Permalink for Section 9.2.2.1"></a></div>
+<p><strong>Schema Field</strong>: sensor_data_collection</p>
+<p><strong>Presentation Type:</strong> Mixed (image and text)</p>
+<p><strong>Field Value Type:</strong> The HTML representation requires an image and text (see 9.1.1.4). The JSON representation requires boolean values (see Section 10).</p>
+<p><strong>Description: </strong>This is an icon- and text-based indication of the presence or absence of certain sensors such as microphone and camera. The text portion of this field, like the rest of the Label, is intended to be suitable for text-to-speech applications.</p>
+</section><section id="subheading-security-updates"><div class="header-wrapper"><h5 id="x9-2-2-2-subheading-security-updates"><bdi class="secno">9.2.2.2 </bdi>Subheading: “Security Updates”</h5><a class="self-link" href="#subheading-security-updates" aria-label="Permalink for Section 9.2.2.2"></a></div>
+<p><strong>Schema Field</strong>: support_date</p>
+<p><strong>Presentation Type:</strong> General</p>
+<p><strong>Field Value Type:</strong> String (date)</p>
+<p><strong>Description: </strong>This field presents the date until which the manufacturer promises to issue software updates correcting critical security vulnerabilities (i.e., the minimum support period); alternatively, a statement that the device is unsupported, and that the purchaser should not rely on the manufacturer to release security updates. Note that this field is a date only (no time information). This field is inserted into the label string, “Security Updates: At least until &lt;date&gt;”, replacing the string “&lt;date&gt;”.</p>
+</section><section id="subheading-getting-updates"><div class="header-wrapper"><h5 id="x9-2-2-3-subheading-getting-updates"><bdi class="secno">9.2.2.3 </bdi>Subheading: “Getting Updates”</h5><a class="self-link" href="#subheading-getting-updates" aria-label="Permalink for Section 9.2.2.3"></a></div>
+<p><strong>Schema Field</strong>: security_update_information</p>
+<p><strong>Presentation Type:</strong> General</p>
+<p><strong>Description: </strong>&nbsp;This field contains two subfields:</p>
+<ul>
+<li>update_default describes the default setting for how updates are performed.</li>
+<li>update_options describes other settings which are available (but are not selected by default).</li>
+</ul>
+<p>This information is presented as a series of one or more strings. The first string is the value of the update_default subfield and the string “by default”. If update_options is not empty, each entry in update_options shall be appended.</p>
+<p><strong>Subfields:</strong></p>
+<p style="margin-left: 40px;"><strong>Schema field:</strong> update_default</p>
+<p style="margin-left: 40px;"><strong>Description:</strong> This field contains information on the default setting for how updates are performed.</p>
+<p style="margin-left: 40px;"><strong>Schema field:</strong> update_options</p>
+<p style="margin-left: 40px;"><strong>Description:</strong> This field contains information on optional settings for how updates are performed.</p>
+<p><strong>Data Encoding Notes: </strong></p>
+<p>The possible values for this field are fixed and defined as one of five possible strings as follows:</p>
+<p>&lt;automatic_no&gt; “Automatic – may not opt out”</p>
+<p style="margin-left: 40px;">Consumer explanation: Device will automatically receive security updates. This setting cannot be changed.</p>
+<p>&lt;automatic_can&gt; “Automatic – may opt out”</p>
+<p style="margin-left: 40px;">Consumer explanation: Device will automatically receive security updates. This setting can be changed if desired.</p>
+<p>&lt;manual&gt; “Manual”</p>
+<p style="margin-left: 40px;">Consumer explanation: User needs to manually install security updates.</p>
+<p>&lt;consent based&gt; “Consent based”</p>
+<p style="margin-left: 40px;">Consumer explanation: User will be asked whether to update the device.</p>
+<p>&lt;no update&gt; “No security updates”</p>
+<p style="margin-left: 40px;">Consumer explanation: Device will not receive any security updates.</p>
+<p>&lt;not disclosed&gt;</p>
+<p>&lt;other&gt;</p>
+<p>Source [4], section 2.1, <em>Security Updates.</em></p>
+<p>If the option “&lt;other&gt;” is selected, it requires an arbitrary string. However, if at all possible, the other fields should be used rather than crafting a similar message using “&lt;other&gt;”.</p>
+</section><section id="subheading-access-control"><div class="header-wrapper"><h5 id="x9-2-2-4-subheading-access-control"><bdi class="secno">9.2.2.4 </bdi>Subheading: “Access Control”</h5><a class="self-link" href="#subheading-access-control" aria-label="Permalink for Section 9.2.2.4"></a></div>
+<p><strong>Schema Field</strong>: access_control</p>
+<p><strong>Presentation Type:</strong> General</p>
+<p><strong>Field Value Type:</strong> Enum (String)</p>
+<p><strong>Description: </strong>This field presents a string of one or attributes that indicate how the device can be accessed and who is allowed to access it. See [4], section 2.2, <em>Access Control</em> for values. If the primary attribute is &lt;password&gt; (with the value, “Password”) and one of the #1 sub-attributes for &lt;password&gt; (as per below) applies, the string shall include “ - “ (space, en dash, space) appended to the primary attribute string, followed by the #1 sub-attribute string value. If the #1 sub-attribute value is “Factory default”, one of the two possible #2 sub-attributes (as per below) shall be similarly included by appending “ - “ (space, en dash, space) to the string, followed by the #2 sub-attribute.</p>
+<p><strong>Data Encoding Notes: </strong></p>
+<p>The possible values for this field are fixed and defined as one of six possible strings as follows:</p>
+<p>&lt;password&gt; Password</p>
+<p style="margin-left: 40px">Consumer explanation: Password is required to access the device settings or data.</p>
+<p>&lt;biometric&gt; Biometric</p>
+<p style="margin-left: 40px">Consumer explanation: User’s physical or behavioral characteristics are required to access the device settings or data.</p>
+<p>&lt;MFA&gt; Multi-factor authentication</p>
+<p style="margin-left: 40px">Consumer explanation: At least two factors are required to access the device settings or data, for example a password and a one-time code sent to a previously registered phone number.</p>
+<p>&lt;passkey&gt; Passkey</p>
+<p style="margin-left: 40px">Consumer explanation: Device supports the Passkey standard of simplified authentication.</p>
+<p>&lt;no control&gt; No control over access</p>
+<p style="margin-left: 40px">Consumer explanation: Anyone can access the device without a password or other authentication method.</p>
+<p>&lt;multi account&gt; Multiple user accounts</p>
+<p style="margin-left: 40px">Consumer explanation: To access the device, user needs to create an account; multiple user accounts may be created</p>
+<p>&lt;single account&gt; Required user account</p>
+<p style="margin-left: 40px">Consumer explanation: To access the device, user needs to create an account</p>
+<p>&lt;optional account&gt; Optional user account</p>
+<p style="margin-left: 40px">Consumer explanation: User may create an account, but it is not required.</p>
+<p>&lt;no account&gt; No user accounts</p>
+<p style="margin-left: 40px">Consumer explanation: Device does not support the creation of user accounts.</p>
+<p>&lt;not disclosed&gt;</p>
+<p>&lt;other&gt;</p>
+<p><strong>Optional sub-attribute #1 for </strong>&lt;password&gt; <strong>(one of the following):</strong></p>
+<p>&lt;factory default&gt; Factory default</p>
+<p style="margin-left: 40px">Consumer explanation: The credentials required to access the device have default values that are initially generated by the manufacturer.</p>
+<p>&lt;user generated&gt; User generated</p>
+<p style="margin-left: 40px">Consumer explanation: User needs to create their own credentials to access the device.</p>
+<p><strong>Optional sub-attribute #2 for </strong>&lt;factory default&gt; <strong>(one of the following)</strong></p>
+<p>&lt;user changeable&gt; User changeable</p>
+<p style="margin-left: 40px">Consumer explanation: User may change the credentials that are required to access the device (for security purposes, make sure to change all default credentials before using the device).</p>
+<p>&lt;not user changeable&gt; Not changeable by user</p>
+<p>Consumer explanation: User cannot change the credentials that are required to access the device.</p>
+
+</section><section id="subheading-securing-this-product"><div class="header-wrapper"><h5 id="x9-2-2-5-subheading-securing-this-product"><bdi class="secno">9.2.2.5 </bdi>Subheading: “Securing This Product”</h5><a class="self-link" href="#subheading-securing-this-product" aria-label="Permalink for Section 9.2.2.5"></a></div>
+
+<p><strong>Schema Field</strong>: securing_this_product</p>
+<p><strong>Presentation Type:</strong> General</p>
+<p><strong>Field Value Type:</strong> URL</p>
+<p><strong>Description: </strong>This field presents a URL that leads to information regarding appropriate use of configuration settings for cybersecurity.</p>
+</section><section id="subheading-general-user-information"><div class="header-wrapper"><h5 id="x9-2-2-6-subheading-general-user-information"><bdi class="secno">9.2.2.6 </bdi>Subheading: “General User Information”</h5><a class="self-link" href="#subheading-general-user-information" aria-label="Permalink for Section 9.2.2.6"></a></div>
+<p><strong>Schema Field</strong>: general_user_information</p>
+<p><strong>Presentation Type: </strong>General</p>
+<p><strong>Field Value Type:</strong> URL</p>
+<p><strong>Description: </strong>This field presents a URL that points to the product's main page. If there is no suitable product main page, this field may be used to point to the manufacturer’s preferred site, such as a corporate home page.</p>
+</section></section><section id="section-footer-information"><div class="header-wrapper"><h4 id="x9-2-3-section-footer-information"><bdi class="secno">9.2.3 </bdi>Section: Footer Information</h4><a class="self-link" href="#section-footer-information" aria-label="Permalink for Section 9.2.3"></a></div>
+<p>The Footer is presented below all other information on both L1 and L2 pages and carries authorization information including date, test lab and certification body.</p>
+<section id="subheading-authorization-date"><div class="header-wrapper"><h5 id="x9-2-3-1-subheading-authorization-date"><bdi class="secno">9.2.3.1 </bdi>Subheading: “Authorization Date”</h5><a class="self-link" href="#subheading-authorization-date" aria-label="Permalink for Section 9.2.3.1"></a></div>
+<p><strong>Schema Field</strong>: authorization_date</p>
+<p><strong>Presentation Type:</strong> Simple</p>
+<p><strong>Field Value Type: </strong>String</p>
+<p><strong>Description: </strong>This is the date of product certification and authorization as issued by the CLA and as reflected in the grant of Certification. Note that this field is a date only (no time information).</p>
+</section><section id="subheading-authorized-by"><div class="header-wrapper"><h5 id="x9-2-3-2-subheading-authorized-by"><bdi class="secno">9.2.3.2 </bdi>Subheading: “Authorized By”</h5><a class="self-link" href="#subheading-authorized-by" aria-label="Permalink for Section 9.2.3.2"></a></div>
+<p><strong>Schema Field</strong>: authorized_by</p>
+<p><strong>Presentation Type:</strong> Simple</p>
+<p><strong>Field Value Type:</strong> String, String</p>
+<p><strong>Description: </strong>This is two strings representing the name and contact information of the CLA that issued the authorization to use the Mark.</p>
+</section><section id="subheading-tested-by"><div class="header-wrapper"><h5 id="x9-2-3-3-subheading-tested-by"><bdi class="secno">9.2.3.3 </bdi>Subheading: “Tested By”</h5><a class="self-link" href="#subheading-tested-by" aria-label="Permalink for Section 9.2.3.3"></a></div>
+<p><strong>Schema Field</strong>: tested_by</p>
+<p><strong>Presentation Type:</strong> Simple</p>
+<p><strong>Field Value Type:</strong> String, String</p>
+<p><strong>Description: </strong>This is two strings representing the name and contact information of the CyberLAB that generated the test report supplied to the CLA in the manufacturer's application for authorization to use the Mark.</p>
+</section></section></section><section id="second-linked-page-technical-page"><div class="header-wrapper"><h3 id="x9-3-second-linked-page-technical-page"><bdi class="secno">9.3 </bdi>Second Linked Page (Technical Page)</h3><a class="self-link" href="#second-linked-page-technical-page" aria-label="Permalink for Section 9.3"></a></div>
+<p>The second linked page shall have the following fields.</p>
+<section id="section-header-information"><div class="header-wrapper"><h4 id="x9-3-1-section-header-information"><bdi class="secno">9.3.1 </bdi>Section: Header Information</h4><a class="self-link" href="#section-header-information" aria-label="Permalink for Section 9.3.1"></a></div>
+<p>The Header on Layer 2 is identical to the Header on Layer 1. See Section 9.2.1.</p>
+</section><section id="section-additional-and-technical-information"><div class="header-wrapper"><h4 id="x9-3-2-section-additional-and-technical-information"><bdi class="secno">9.3.2 </bdi>Section: Additional and Technical Information</h4><a class="self-link" href="#section-additional-and-technical-information" aria-label="Permalink for Section 9.3.2"></a></div>
+<p>These fields are presented below the Header and the string “Additional and Technical Information” on the L2 label page.</p>
+<section id="subheading-deleting-device-data"><div class="header-wrapper"><h5 id="x9-3-2-1-subheading-deleting-device-data"><bdi class="secno">9.3.2.1 </bdi>Subheading: “Deleting Device Data”</h5><a class="self-link" href="#subheading-deleting-device-data" aria-label="Permalink for Section 9.3.2.1"></a></div>
+<p><strong>Schema Field</strong>: ownership_transfer</p>
+<p><strong>Presentation Type:</strong> General</p>
+<p><strong>Field Value Type:</strong> URL</p>
+<p><strong>Description: </strong>This field presents a URL that leads to information regarding purging data prior to the consumer relinquishing possession of the IoT Device in case of sale. This information is specifically in regard to deleting on-device accounts, such as in the case of removing the account and credentials for logging into a smart home device.</p>
+</section><section id="subheading-account-deactivation"><div class="header-wrapper"><h5 id="x9-3-2-2-subheading-account-deactivation"><bdi class="secno">9.3.2.2 </bdi>Subheading: “Account Deactivation”</h5><a class="self-link" href="#subheading-account-deactivation" aria-label="Permalink for Section 9.3.2.2"></a></div>
+<p><strong>Schema Field</strong>: account_deactivation</p>
+<p><strong>Presentation Type:</strong> General</p>
+<p><strong>Field Value Type:</strong> URL</p>
+<p><strong>Description: </strong>This field presents a URL that leads to information regarding how to deactivate or remove user accounts related to the IoT Product, including on the device, cloud services, smartphone app or other IoT Product Component that may maintain such accounts.</p>
+</section><section id="subheading-sbom-hbom-available"><div class="header-wrapper"><h5 id="x9-3-2-3-subheading-sbom-hbom-available"><bdi class="secno">9.3.2.3 </bdi>Subheading: “SBOM HBOM Available”</h5><a class="self-link" href="#subheading-sbom-hbom-available" aria-label="Permalink for Section 9.3.2.3"></a></div>
+<p><strong>Schema Field</strong>: sbom_hbom_available</p>
+<p><strong>Presentation Type: </strong>General</p>
+<p><strong>Field Value Type:</strong> Booleans (two values, one for SBOM availability and one for HBOM availability)</p>
+<p><strong>Description: </strong>This field is a structure containing two Boolean values that represent "yes/no" responses. These values are the manufacturer's disclosure of whether they maintain a Hardware Bill of Materials (HBOM) and/or a Software Bill of Materials (SBOM). A Boolean value of “TRUE” is equivalent to “yes, it is maintained”.</p>
+</section><section id="subheading-encryption-and-key-management"><div class="header-wrapper"><h5 id="x9-3-2-4-subheading-encryption-and-key-management"><bdi class="secno">9.3.2.4 </bdi>Subheading: “Encryption and Key Management”</h5><a class="self-link" href="#subheading-encryption-and-key-management" aria-label="Permalink for Section 9.3.2.4"></a></div>
+<p><strong>Schema Field</strong>: encryption_and_key_management</p>
+<p><strong>Presentation Type: </strong>General</p>
+<p><strong>Field Value Type:</strong> URL</p>
+<p><strong>Description: </strong>This field presents a URL that leads to technical information intended for researchers or others looking for information about these elements.</p>
+</section><section id="subheading-qr-code-url"><div class="header-wrapper"><h5 id="x9-3-2-5-subheading-qr-code-url"><bdi class="secno">9.3.2.5 </bdi>Subheading: “QR Code URL”</h5><a class="self-link" href="#subheading-qr-code-url" aria-label="Permalink for Section 9.3.2.5"></a></div>
+<p><strong>Schema Field</strong>: QR_code_URL</p>
+<p><strong>Presentation Type:</strong> General</p>
+<p><strong>Field Value Type:</strong> URL</p>
+<p><strong>Description: </strong>This field is used on the L2 page and contains a clickable hyperlink back to the L1 page. It is also in the JSON structure as part of the record of the product certification.</p>
+</section><section id="subheading-security-contact"><div class="header-wrapper"><h5 id="x9-3-2-6-subheading-security-contact"><bdi class="secno">9.3.2.6 </bdi>Subheading: “Security Contact”</h5><a class="self-link" href="#subheading-security-contact" aria-label="Permalink for Section 9.3.2.6"></a></div>
+<p><strong>Schema Field</strong>: security_contact</p>
+<p><strong>Presentation Type:</strong> General</p>
+<p><strong>Field Value Type:</strong> String</p>
+<p><strong>Description: </strong>This field is a string that may be a valid email address or valid website URL. The field should provide an entry point for researchers or other third-parties to contact the manufacturer's security team – e.g., in the case of a third-party discovery of a zero-day exploit in the IoT Product.</p>
+<p>In the case of a URL, the URL should point to a machine-parseable “security.txt” file as per RFC 9116 [10].</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>"https://mydomain.com/security-contact-us"</li>
+<li>"security@mydomain.com"</li>
+<li>“https://cdn.products.mydomain.com/security.txt”</li>
+</ul>
+</section></section><section id="section-footer-information-0"><div class="header-wrapper"><h4 id="x9-3-3-section-footer-information"><bdi class="secno">9.3.3 </bdi>Section: Footer Information</h4><a class="self-link" href="#section-footer-information-0" aria-label="Permalink for Section 9.3.3"></a></div>
+<p>The Footer on Layer 2 is identical to the Footer on Layer 1. See Section 9.2.3.</p>
+</section><section id="section-non-displayable-information"><div class="header-wrapper"><h4 id="x9-3-4-section-non-displayable-information"><bdi class="secno">9.3.4 </bdi>Section: Non-Displayable Information</h4><a class="self-link" href="#section-non-displayable-information" aria-label="Permalink for Section 9.3.4"></a></div>
+<p>This section covers information that is not displayed in the label but is carried in the Schema (see Section 10, Schema).</p>
+<section id="subheading-schema-header-information"><div class="header-wrapper"><h5 id="x9-3-4-1-subheading-schema-header-information"><bdi class="secno">9.3.4.1 </bdi>Subheading: Schema Header Information</h5><a class="self-link" href="#subheading-schema-header-information" aria-label="Permalink for Section 9.3.4.1"></a></div>
+<p><strong>Schema Field</strong>: “$schema”, “$id”, “$comment”, “title”, and “description”</p>
+<p><strong>Presentation Type: </strong>Non-Display</p>
+<p><strong>Field Value Type:</strong> Strings</p>
+<p><strong>Description:</strong> The “$schema”, “$id”, “$comment”, “title”, and “description” fields are fixed and shall not be changed from the values presented in the corresponding fields in the source schema (see the link in the value of the $id field, section 10.3).</p>
+</section><section id="subheading-created"><div class="header-wrapper"><h5 id="x9-3-4-2-subheading-created"><bdi class="secno">9.3.4.2 </bdi>Subheading: “Created”</h5><a class="self-link" href="#subheading-created" aria-label="Permalink for Section 9.3.4.2"></a></div>
+<p><strong>Schema Field</strong>: created</p>
+<p><strong>Presentation Type: </strong>Non-Display</p>
+<p><strong>Field Value Type:</strong> timestamp</p>
+<p><strong>Description:</strong> The time at which this record (that is, this entire JSON structure including this field) was originally created. The creator can use any time it deems most appropriate as the time the record was created, but it shall have resolution precise to seconds, at minimum. The created property shall not be changed. When creating a new version of this record, the original value is used.</p>
+</section><section id="subheading-modified"><div class="header-wrapper"><h5 id="x9-3-4-3-subheading-modified"><bdi class="secno">9.3.4.3 </bdi>Subheading: “Modified”</h5><a class="self-link" href="#subheading-modified" aria-label="Permalink for Section 9.3.4.3"></a></div>
+<p><strong>Schema Field</strong>: modified</p>
+<p><strong>Presentation Type: </strong>Non-Display</p>
+<p><strong>Field Value Type:</strong> timestamp</p>
+<p><strong>Description:</strong> The time that this particular version of the record (that is, this entire JSON structure including this field) was last modified. The creator can use any time it deems most appropriate as the time that this version of the record was modified, but it shall have resolution precise to seconds, at minimum. The modified property shall be later than or equal to the value of the created property. If created and modified properties have the same timestamp, then this is the first version of the record.</p>
+</section><section id="subheading-schema-version"><div class="header-wrapper"><h5 id="x9-3-4-4-subheading-schema-version"><bdi class="secno">9.3.4.4 </bdi>Subheading: Schema Version</h5><a class="self-link" href="#subheading-schema-version" aria-label="Permalink for Section 9.3.4.4"></a></div>
+<p><strong>Schema Field</strong>: schema_version</p>
+<p><strong>Presentation Type: </strong>Non-Display</p>
+<p><strong>Field Value Type: </strong>String</p>
+<p><strong>Description: </strong>This field is of the form “1.0.0” and indicates the schema revision number. The string must match the schema_version string in the version of the on-line schema used.</p>
+</section></section></section></section><section id="schema-and-other-resources"><div class="header-wrapper"><h2 id="x10-schema-and-other-resources"><bdi class="secno">10. </bdi>Schema and Other Resources</h2><a class="self-link" href="#schema-and-other-resources" aria-label="Permalink for Section 10."></a></div>
+<section id="schema"><div class="header-wrapper"><h3 id="x10-1-schema"><bdi class="secno">10.1 </bdi>Schema</h3><a class="self-link" href="#schema" aria-label="Permalink for Section 10.1"></a></div>
+<p>The schema is maintained as a normative reference as: usctm-schema-1-0-0.json, with the SHA256 hash of</p>
+<p></p><center><code>&nbsp;fe44a7fcfc037200dc6b2431f14113e505bc5af72fbe60ce6945cb6f1eca1aea</code></center><p></p>
+<p>For the latest version of the schema, and for prior versions, see <a href="https://github.com/cta-source/standards/tree/main/cta-2120">https://github.com/cta-source/standards/tree/main/cta-2120</a>. The most recent version of the schema at that location is the updated standard JSON of this document.</p>
+<p>This schema includes the fields defined in the prior sections. Note that some of these data may be updated by the manufacturer through the life of the product. In addition, the current label landing page URL is encoded in the JSON data of the product in the registry.</p>
+</section><section id="icons"><div class="header-wrapper"><h3 id="x10-2-icons"><bdi class="secno">10.2 </bdi>Icons</h3><a class="self-link" href="#icons" aria-label="Permalink for Section 10.2"></a></div>
+<p>The individual icons above used in this standard are available as informative reference material at <a href="https://github.com/cta-source/standards/tree/main/cta-2120">https://github.com/cta-source/standards/tree/main/cta-2120</a>. These image files are in PNG and SVG format and may be used by registry implementations.</p>
+<ul>
+<li><a href="https://github.com/cta-source/standards/tree/main/cta-2120/Camera_Icon.png">https://github.com/cta-source/standards/tree/main/cta-2120/Camera_Icon.png</a></li>
+<li><a href="https://github.com/cta-source/standards/tree/main/cta-2120/Camera_Icon_Gray.png">https://github.com/cta-source/standards/tree/main/cta-2120/Camera_Icon_Gray.png</a></li>
+<li><a href="https://github.com/cta-source/standards/tree/main/cta-2120/Microphone_Icon.png">https://github.com/cta-source/standards/tree/main/cta-2120/Microphone_Icon.png</a></li>
+<li><a href="https://github.com/cta-source/standards/tree/main/cta-2120/Microphone_Icon_Gray.png">https://github.com/cta-source/standards/tree/main/cta-2120/Microphone_Icon_Gray.png</a></li>
+<li><a href="https://github.com/cta-source/standards/tree/main/cta-2120/Compass_Icon.png">https://github.com/cta-source/standards/tree/main/cta-2120/Compass_Icon.png</a></li>
+<li><a href="https://github.com/cta-source/standards/tree/main/cta-2120/Compass_Icon_Gray.png">https://github.com/cta-source/standards/tree/main/cta-2120/Compass_Icon_Gray.png</a></li>
+<li><a href="https://github.com/cta-source/standards/tree/main/cta-2120/Camera_Icon.svg">https://github.com/cta-source/standards/tree/main/cta-2120/Camera_Icon.svg</a></li>
+<li><a href="https://github.com/cta-source/standards/tree/main/cta-2120/Camera_Icon_Gray.svg">https://github.com/cta-source/standards/tree/main/cta-2120/Camera_Icon_Gray.svg</a></li>
+<li><a href="https://github.com/cta-source/standards/tree/main/cta-2120/Microphone_Icon.svg">https://github.com/cta-source/standards/tree/main/cta-2120/Microphone_Icon.svg</a></li>
+<li><a href="https://github.com/cta-source/standards/tree/main/cta-2120/Microphone_Icon_Gray.svg">https://github.com/cta-source/standards/tree/main/cta-2120/Microphone_Icon_Gray.svg</a></li>
+<li><a href="https://github.com/cta-source/standards/tree/main/cta-2120/Compass_Icon.svg">https://github.com/cta-source/standards/tree/main/cta-2120/Compass_Icon.svg</a></li>
+<li><a href="https://github.com/cta-source/standards/tree/main/cta-2120/Compass_Icon_Gray.svg">https://github.com/cta-source/standards/tree/main/cta-2120/Compass_Icon_Gray.svg</a></li>
+</ul>
+</section><section id="sample-html"><div class="header-wrapper"><h3 id="x10-3-sample-html"><bdi class="secno">10.3 </bdi>Sample HTML</h3><a class="self-link" href="#sample-html" aria-label="Permalink for Section 10.3"></a></div>
+<p>A sample HTML/CSS file that matches the sample implementation in Figure 5 is available as informative reference material at:</p>
+<ul>
+<li><a href="https://cdn.cta.tech/cta-2120/">https://github.com/cta-source/standards/tree/main/cta-2120/Label_Sample.png</a></li>
+</ul>
+<p>This sample file has hard-coded values for individual fields and is not intended for direct program use but may be used as a basis or comparison version for registry implementors.</p>
+
+<br><br>
+<p><strong>Footnotes</strong></p>
+<p><a href="#_ftnref1" name="_ftn1">[1]</a> Trademark Components are expected to be used in conjunction with the Full Mark in a cybersecurity label program. In this case, the Trademark Components will typically be identified in a license agreement that covers usage of the Trademark and Mark elements.</p>
+
+	
+
+
+<br><br>
+<hr>
+<br><br><br><p><strong></strong></p><center><strong>Consumer Technology Association Document Improvement Proposal</strong></center><p></p>
+<p>If in the review or use of this document a potential change is made evident for safety, health or technical reasons, please email your reason/rationale for the recommended change to <a href="mailto:standards@CTA.tech">standards@CTA.tech</a>.</p>
+<p></p><center>Consumer Technology Association<br>
+Technology &amp; Standards Department<br>
+1919 S Eads Street, Arlington, VA 22202<br>
+FAX: (703) 907-7693<br>
+<a href="mailto:standards@CTA.tech">standards@CTA.tech</a></center><p></p><a href="mailto:standards@CTA.tech">
+
+    
+
+  
+</a></section></section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-highlight-vars">(() => {
+// @ts-check
+
+if (document.respec) {
+  document.respec.ready.then(setupVarHighlighter);
+} else {
+  setupVarHighlighter();
+}
+
+function setupVarHighlighter() {
+  document
+    .querySelectorAll("var")
+    .forEach(varElem => varElem.addEventListener("click", highlightListener));
+}
+
+/**
+ * @param {MouseEvent} ev
+ */
+function highlightListener(ev) {
+  ev.stopPropagation();
+  const varElem = /** @type {HTMLElement} */ (ev.target);
+  const hightligtedElems = highlightVars(varElem);
+  const resetListener = () => {
+    const hlColor = getHighlightColor(varElem);
+    hightligtedElems.forEach(el => removeHighlight(el, hlColor));
+    [...HL_COLORS.keys()].forEach(key => HL_COLORS.set(key, true));
+  };
+  if (hightligtedElems.length) {
+    document.body.addEventListener("click", resetListener, { once: true });
+  }
+}
+
+// availability of highlight colors. colors from var.css
+const HL_COLORS = new Map([
+  ["respec-hl-c1", true],
+  ["respec-hl-c2", true],
+  ["respec-hl-c3", true],
+  ["respec-hl-c4", true],
+  ["respec-hl-c5", true],
+  ["respec-hl-c6", true],
+  ["respec-hl-c7", true],
+]);
+
+/**
+ * @param {HTMLElement} target
+ */
+function getHighlightColor(target) {
+  // return current colors if applicable
+  const { value } = target.classList;
+  const re = /respec-hl-\w+/;
+  const activeClass = re.test(value) && value.match(re);
+  if (activeClass) return activeClass[0];
+
+  // first color preference
+  if (HL_COLORS.get("respec-hl-c1") === true) return "respec-hl-c1";
+
+  // otherwise get some other available color
+  return [...HL_COLORS.keys()].find(c => HL_COLORS.get(c)) || "respec-hl-c1";
+}
+
+/**
+ * @param {HTMLElement} varElem
+ */
+function highlightVars(varElem) {
+  const textContent = norm(varElem.textContent);
+  const parent = /** @type {HTMLElement} */ (
+    varElem.closest(".algorithm, section")
+  );
+  if (!parent) return [];
+  const highlightColor = getHighlightColor(varElem);
+
+  const varsToHighlight = [...parent.querySelectorAll("var")].filter(
+    el =>
+      norm(el.textContent) === textContent &&
+      el.closest(".algorithm, section") === parent
+  );
+
+  // update availability of highlight color
+  const colorStatus = varsToHighlight[0].classList.contains("respec-hl");
+  HL_COLORS.set(highlightColor, colorStatus);
+
+  // highlight vars
+  if (colorStatus) {
+    varsToHighlight.forEach(el => removeHighlight(el, highlightColor));
+    return [];
+  } else {
+    varsToHighlight.forEach(el => addHighlight(el, highlightColor));
+  }
+  return varsToHighlight;
+}
+
+/**
+ * @param {HTMLElement} el
+ * @param {string} highlightColor
+ */
+function removeHighlight(el, highlightColor) {
+  el.classList.remove("respec-hl", highlightColor);
+  // clean up empty class attributes so they don't come in export
+  if (!el.classList.length) el.removeAttribute("class");
+}
+
+/**
+ * @param {HTMLElement} elem
+ * @param {string} highlightColor
+ */
+function addHighlight(elem, highlightColor) {
+  elem.classList.add("respec-hl", highlightColor);
+}
+
+/**
+ * Same as `norm` from src/core/utils, but our build process doesn't allow
+ * imports in runtime scripts, so duplicated here.
+ * @param {string} str
+ */
+function norm(str) {
+  return str.trim().replace(/\s+/g, " ");
+}
+})()</script><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement | null} */
+  let panel = null;
+  /**
+   * @param {KeyboardEvent|MouseEvent} event
+   */
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (
+      type === "keydown" &&
+      /** @type {KeyboardEvent} */ (event).key !== "Enter"
+    )
+      return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement | null} */
+        const dfn = target.closest("dfn, .index-term");
+        if (!dfn?.id) break;
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        if (!panel) break;
+        const coords = deriveCoordinates(
+          /** @type {MouseEvent|KeyboardEvent} */ (event)
+        );
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        if (panel) {
+          panel.style.left = "";
+          panel.style.top = "";
+          panel.classList.add("docked");
+        }
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+
+    const panel = /** @type {HTMLElement} */ (target.closest(".dfn-panel"));
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement | null} */
+    const caret = panel.querySelector(".caret");
+    if (caret) caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  /**
+   * @param {KeyboardEvent} event
+   */
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement | null} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
