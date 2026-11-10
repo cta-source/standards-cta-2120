@@ -1,0 +1,193 @@
+<style>
+@charset "UTF-8";
+body {
+  font-size: medium;
+  line-height: 1.2;
+}
+p {
+  margin: 0;
+  font-family:arial;
+}
+/* The cyberlabel class is the top-level class of the label box and fields within it. */
+.cyberlabel {
+  border: 1px solid black;
+  margin: 20px;
+  float: left;
+  width: 350px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-family:arial;
+}
+.cyberlabel table {
+  /*border-collapse: collapse;*/
+  width: 350px;
+}
+
+/* The cyberlabel_table class sets properties for the table-oriented layout of most of the label. */
+ .cyberlabel_table thead tr {
+  border: 0;
+}
+.cyberlabel_table th  {
+  font-weight: normal;
+  text-align: left;
+  padding: 0.25rem 0;
+
+  white-space: nowrap;
+}
+.cyberlabel_table td {
+  font-weight: normal;
+  text-align: left;
+  padding: 0.25rem 0;
+  border-top: 1px solid black;
+  white-space: nowrap;
+}
+.cyberlabel_table td:last-child {
+  text-align: left;
+}
+.cyberlabel_table .blank-cell {
+  width: 1rem;
+  border-top: 0;
+}
+.cyberlabel_table .thick-row th {
+  border-top-width: 5px;
+}
+/* The 90daylabel_table class sets properties for the table-oriented layout of most of the label. */
+ .90daylabel_table thead tr {
+  font-family:arial;
+  border: 0;
+}
+.90daylabel_table th  {
+  font-family:arial;
+  font-weight: normal;
+  text-align: left;
+  padding: 0.25rem 0;
+
+  white-space: nowrap;
+}
+.90daylabel_table td {
+  font-family:arial;
+  font-weight: normal;
+  text-align: left;
+  padding-top: 0.25rem 0;
+  padding-bottom: 0.25rem 0;
+  padding-left: 20px;
+  border-top: 1px solid black;
+  white-space: nowrap;
+}
+.90daylabel_table td:last-child {
+  text-align: left;
+}
+.90daylabel_table .blank-cell {
+  width: 1rem;
+  border-top: 0;
+}
+.90daylabel_table .thick-row th {
+  border-top-width: 5px;
+}
+/* The cyberlabel_header class sets properties for the title, which is contained in a header. */
+.cyberlabel_header {
+  font-family:arial;
+  border-bottom: 1px solid black;
+  padding: 0 0 0.25rem 0;
+  margin: 0 0 0.5rem 0;
+  text-align: center;
+}
+.cyberlabel_header p {
+  margin: 0;
+}
+/* The cyberlabel_title class sets properties for the text of the title above the table. */
+.cyberlabel_title {
+  font-family:arial;
+  font-weight: bold;
+  font-size: 2rem;
+  float: center;
+  margin: 0 0 0.25rem 0;
+}
+.details_header {
+  border-bottom: 1px solid black;
+  font-family:arial;
+  font-weight: bold;
+  font-size: 1.5rem;
+  float: center;
+  padding: 0 0 0.25rem 0;
+  margin: 0 0 0.5rem 0;
+}
+/* The image_mark class sets properties for the FCC USCTM mark when displayed */
+.image_mark {
+  width: 195px;
+  height: 150px;
+  float: center;
+  margin: 20px;
+}
+/* The image_sensor class sets properties for the sensor icon set when displayed */
+.image_sensor {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+  float: center;
+}
+
+.small-info {
+  font-size: 1rem;
+}
+
+.thick-end {
+  border-bottom: 10px solid black;
+}
+.thin-end {
+  border-bottom: 1px solid black;
+}
+
+</style>
+<html>
+<section class="cyberlabel">
+  <header class="cyberlabel_header">
+    <h1 class="cyberlabel_title">Security Overview</h1>
+    <img src="https://www.fcc.gov/sites/default/files/US-Cyber-Trust-Mark-Black.jpg" class="image_mark">
+  </header>
+  <div><p style="font-family:arial"; text-align:justify><b>About This Label:</b> This product is certified under the Federal Communications Commission U.S. Cyber Trust Mark Labeling Program. This product has been tested and approved to meet certain minimum cybersecurity standards. For more information about the U.S. Cyber Trust Mark Labeling Program, please visit: https://fcc.gov/cybertrustmark</p></div>
+    <p><div><p><br></p></div>
+    <label for="langlabel">Select Language:</label>
+    <select name="language" id="langlabel">
+        <option value="English">English</option>
+        <option value="Spanish">Spanish</option>
+    </select></p><br>
+    <div class="details_header"><b></b></div>
+    <p><b>Product Name:</b>  RingWraith2000 </p>
+    <p><b>Product Model:</b>  RW2K </p>
+    <p><b>Manufacturer:</b>  Gamgee Unlimited </p>
+    <div class="details_header"><b></b></div>
+   <table class="90daylabel_table">
+      <tr>  <th> <b>Sensor Data Collection</b> </th> </tr>
+      <tr>  <td><img src="https://github.com/cta-source/standards/blob/main/cta-2120/Icons_Sample.png?raw=true" class="image_sensor"></td> </tr>
+
+
+
+<table style="padding-left: 1px;  font-size:1.1vw; border-top: 1px solid black;"><tr><td><b>Security Mechanisms</b></td></tr></table>
+<table style="padding-left: 1px; font-size:0.9vw;"><tr><td><b> Security Updates : </b>At least until 2028-08-31</td></tr></table>
+<table style="padding-left: 1px; font-size:0.9vw;"><tr><td><b> Getting Updates : </b>Automatic by default (can opt-out)</td></tr></table>
+<table style="padding-left: 1px; font-size:0.9vw;"><tr><td><b> Access Control : </b><br>&nbsp;Password – Factory Default – User Changeable<br>&nbsp;Passkey</td></tr></table>
+<table style="padding-left: 1px; font-size:0.9vw;"><tr><td><b> Securing This Product : </b>www.gamgee.tech/RW2K/Security</td></tr></table>
+<table style="padding-left: 1px; font-size:0.9vw;"><tr><td><b> Further Security Detail : </b> --link to L2--</td></tr></table>
+<table style="padding-left: 1px;  font-size:1.1vw; border-top: 1px solid black;"><tr><td><b>Password Management</b></td></tr></table>
+<table style="padding-left: 1px; font-size:0.9vw;"><tr><td><b> How To Change Device Password : </b>www.gamgee.tech/RW2K/Security</td></tr></table>
+<table style="padding-left: 1px;  font-size:1.1vw; border-top: 1px solid black;"><tr><td><b>General User Information</b></td></tr></table>
+<table style="padding-left: 1px; font-size:0.9vw;"><tr><td><b>About This Product : </b><br> --link to manufacturer's choice--</td></tr></table>
+<table style="padding-left: 1px; border-top: 1px solid black;"><tr><td><b></b></td></tr></table>
+
+      <tr class="thick-end">
+        <th colspan="2">
+        </th>
+        <td>
+        </td>
+      </tr>
+  </table>
+    <p><b>Authorization Date:</b>    2025-08-18 </p>
+    <p><b>Authorized By:</b> Melkor Conformity Inc. </br> http://melkorconformity.com/contact.html </p>
+    <p><b>Tested By:</b>     Ungoliant Laboratories <br> http://ungoliantlabs.com/contact.html </p>
+</section>
+
+</html>
